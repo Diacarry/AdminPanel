@@ -8,3 +8,11 @@ npm install
 
 - Seguidos del comando
 npm run dev
+
+Se debe crear una base de datos con las siguientes caracteristicas, dicha información se encuentra en el archivo '.env.example' y debe ser incluida en el archivo '.env'
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=management
+DB_USERNAME=adminpanel
+DB_PASSWORD=AdminPanel123*
