@@ -61,7 +61,12 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        return 'Funcion NO habilitada';
+        $company = Company::find($id);
+        $employees = Company::find($id)->employees;
+        return view('company.employees',[
+            'company' => $company,
+            'data'    => $employees
+        ]);
     }
 
     /**
