@@ -43,4 +43,10 @@ class Company extends Model
      */
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+    /**
+     * Get the employees for the model companies.
+     */
+    public function employees() {
+        return $this->hasMany('App\Employee', 'fk_companies', 'email');
+    }
 }

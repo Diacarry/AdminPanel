@@ -43,4 +43,10 @@ class Employee extends Model
      */
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+    /**
+     * Get the Company that owns the employess.
+     */
+    public function company() {
+        return $this->belongsTo('App\Company', 'fk_companies', 'email');
+    }
 }
