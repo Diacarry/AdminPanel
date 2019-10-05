@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -13,7 +14,10 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $data = Company::all();
+        return view('company.index', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('company.register');
     }
 
     /**
@@ -34,7 +38,19 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'email'   => 'required|min:8|max:50',
+            'name'    => 'required|min:10|max:255',
+            'website' => 'required|min:5|max:30',
+            /*'file'     => 'requiere',*/
+        ]);
+        $report = new Company;
+        $report->email = $request->get('email');
+        $report->name = $request->get('name');
+        $report->website = $request->get('website');
+        $report->logo = 'default,jpg';
+        $report->save();
+        return redirect('companies');
     }
 
     /**
@@ -45,7 +61,7 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        //
+        return 'Funcion NO habilitada';
     }
 
     /**
@@ -56,7 +72,10 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $company = Company::find($id);
+        return view('company.edit', [
+            'data' => $company
+        ]);
     }
 
     /**
@@ -68,7 +87,17 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name'    => 'required|min:10|max:255',
+            'website' => 'required|min:5|max:30',
+            /*'file'     => 'requiere',*/
+        ]);
+        $report = Company::find($id);
+        $report->name = $request->get('name');
+        $report->website = $request->get('website');
+        $report->logo = 'EditDefault,jpg';
+        $report->save();
+        return redirect('companies');
     }
 
     /**
@@ -79,6 +108,8 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $registro = Company::find($id);
+        $registro->delete();
+        return redirect('companies');
     }
 }
