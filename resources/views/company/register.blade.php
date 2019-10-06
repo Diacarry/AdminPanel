@@ -13,7 +13,7 @@
             </ul>
         </div>
     @endif
-    <form action="/companies" method="POST">
+    <form action="/companies" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group row">
             <label for="email" class="col-sm-2 col-form-label">E-mail Company</label>
@@ -34,8 +34,8 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="exampleFormControlFile1">Add logo to company</label>
-            <input type="file" class="form-control-file" id="file" name="file">
+            <label for="logo">Add logo to company</label>
+            <input type="file" class="form-control-file" id="logo" name="logo">
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
     </form>

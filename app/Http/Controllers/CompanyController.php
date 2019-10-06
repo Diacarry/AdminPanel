@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+//use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -42,13 +44,17 @@ class CompanyController extends Controller
             'email'   => 'required|min:8|max:50',
             'name'    => 'required|min:10|max:255',
             'website' => 'required|min:5|max:30',
-            /*'file'     => 'requiere',*/
+            'logo'    => 'dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
         ]);
         $report = new Company;
         $report->email = $request->get('email');
         $report->name = $request->get('name');
         $report->website = $request->get('website');
-        $report->logo = 'default,jpg';
+        if ($request->has('logo')) {
+            $report->logo = Storage::putFile('public', $request->file('logo'));
+        } else {
+            $report->logo = 'default.png';
+        }
         $report->save();
         return redirect('companies');
     }

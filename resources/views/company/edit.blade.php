@@ -32,6 +32,7 @@
         </div>
 
         <div class="form-group">
+            <img src="{{ Storage::url($data->logo) }}" alt=""  width="100px">
             <label for="file">Add logo to company</label>
             <input type="file" class="form-control-file" id="file" name="file">
         </div>

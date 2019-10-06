@@ -19,3 +19,9 @@ DB_PASSWORD=AdminPanel123*
 
 - El sistema posee un seed para agregar un usuario administrador en la tabla users para implementar el sistema de autenticacion en el sistema, para que el unico usuario (email = 'admin@admin.com', password = 'password') aparezca registrado en el sistema debe ejecutar el seed con el siguiente comando
 php artisn db:seed
+
+- Si los archivos cargados por un usuario no son visibles, debe crer un enlace simbólico para que dichos archivos sean visibles, se recomienda usar el comando para mantener estos archivo en acceso publico
+php artisan storege:link
+
+- Ya que los archivos binarios estan restringidos por github, para una correcta visualización del sistema, se recomienda descargar un logo por defecto (en este enlace se encuentra el que se utilizo para las pruebas del aplicativo => http://www.nashikproperty.com/uploads/builder-logo/default-logo.png) o puede ser uno de su elección, lo importante es llamar a este archivo default y que este tenga la extención png y almacenarlo en la carperta 'storage/app/public'
+default.png
