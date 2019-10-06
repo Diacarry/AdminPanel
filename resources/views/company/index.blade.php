@@ -3,11 +3,20 @@
     Companies
 @endsection
 @section('content')
-    <div class="flex-center position-ref full-height">
-        
-        <br><div class="card">
+    <div class="flex-center position-ref full-height"><br>
+        @if (Route::has('login'))
+            <div class="text-right">
+                @auth
+                    <a href="{{ url('/') }}" class="btn btn-outline-danger">Menu</a>
+                    <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Account</a>
+                @endauth
+            </div>
+        @endif
+        <div class="card">
             <div class="card-header">
-                <h2>Companies</h2>
+                <h2>Companies
+                    <div class="text"></div>
+                </h2>
             </div>
             <div class="card-body">
             <p><a href="companies/create" class="btn btn-success">Create new company</a></p>
@@ -22,9 +31,9 @@
                                     <th scope="col">E-mail</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">WebSite</th>
-                                    <th scope="col">Empleados</th>
-                                    <th scope="col">Editar</th>
-                                    <th scope="col">Eliminar</th>
+                                    <th scope="col">Employees</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,7 +53,11 @@
                                         </td>
                                     </tr>
                                 @empty
-                                    <tr>NO HAY EMPLEADOS REGISTRADOS</tr>
+                                    <tr>
+                                        <div class="alert alert-danger" role="alert">
+                                            NO COMPANIES REGISTERED
+                                        </div>
+                                    </tr>
                                 @endforelse
                             </tbody>
                         </table>

@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Company;
-//use Illuminate\Http\File;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
+    /**
+     * Metodo constructor
+     * Implementacion de middleware de autenticacion
+     */
+    public function __construct() {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -102,7 +108,7 @@ class CompanyController extends Controller
         $validatedData = $request->validate([
             'name'    => 'required|min:10|max:255',
             'website' => 'required|min:5|max:30',
-            /*'file'     => 'requiere',*/
+            'logo'    => 'dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
         ]);
         $report = Company::find($id);
         $report->name = $request->get('name');

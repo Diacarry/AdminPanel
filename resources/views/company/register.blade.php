@@ -3,7 +3,15 @@
     Add Company
 @endsection
 @section('content')
-    <h2>Formulario para añadir una nueva empresa</h2>
+    @if (Route::has('login'))
+        <div class="text-right">
+            @auth
+                <a href="{{ route('companies.index') }}" class="btn btn-outline-danger">Companies</a>
+                <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Account</a>
+            @endauth
+        </div>
+    @endif
+    <h2>Form to add a new company</h2>
     @if ($errors->any())
         <div class="alert alert-danger" role="alert">
             <ul>

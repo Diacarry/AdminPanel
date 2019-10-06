@@ -3,14 +3,21 @@
     Employees
 @endsection
 @section('content')
-    <div class="flex-center position-ref full-height">
-        
-        <br><div class="card">
+    <div class="flex-center position-ref full-height"><br>
+        @if (Route::has('login'))
+            <div class="text-right">
+                @auth
+                    <a href="{{ url('/') }}" class="btn btn-outline-danger">Menu</a>
+                    <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Account</a>
+                @endauth
+            </div>
+        @endif
+        <div class="card">
             <div class="card-header">
                 <h2>Employees</h2>
             </div>
             <div class="card-body">
-            <p><a href="companies/create" class="btn btn-success">Create new employee</a></p>
+            <p><a href="{{ route('employees.create') }}" class="btn btn-success">Create new employee</a></p>
                 <div class="card">
                     <div class="card-header">
                         Employees List
@@ -46,7 +53,11 @@
                                         </td>
                                     </tr>
                                 @empty
-                                    <tr>NO HAY EMPLEADOS REGISTRADOS</tr>
+                                    <tr>
+                                        <div class="alert alert-danger" role="alert">
+                                            NO EMPLOYYES REGISTERED
+                                        </div>
+                                    </tr>
                                 @endforelse
                             </tbody>
                         </table>

@@ -3,7 +3,16 @@
     Add Employee
 @endsection
 @section('content')
-    <h2>Formulario para añadir una nueva empresa</h2>
+    <br>
+    @if (Route::has('login'))
+        <div class="text-right">
+            @auth
+                <a href="{{ route('employees.index') }}" class="btn btn-outline-danger">Employees</a>
+                <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Account</a>
+            @endauth
+        </div>
+    @endif
+    <h2>Form to add a new employee</h2>
     @if ($errors->any())
         <div class="alert alert-danger" role="alert">
             <ul>
@@ -19,7 +28,7 @@
             <label for="fk_companies" class="col-sm-2 col-form-label">Company</label>
             <div class="col-sm-10">
                 <select name="fk_companies" id="fk_companies" class="form-control">
-                    <option value="">Elija una Opción</option>
+                    <option value="">Choose a option</option>
                     @foreach($data as $info)
                         <option value="{{ $info->email }}">{{ $info->name }}</option>
                     @endforeach

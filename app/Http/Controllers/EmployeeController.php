@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 class EmployeeController extends Controller
 {
     /**
+     * Metodo constructor
+     * Implementacion de middleware de autenticacion
+     */
+    public function __construct() {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

@@ -3,7 +3,16 @@
     Edit Company
 @endsection
 @section('content')
-    <h2>Formulario para editar datos de una empresa</h2>
+    <br>
+        @if (Route::has('login'))
+            <div class="text-right">
+                @auth
+                    <a href="{{ route('companies.index') }}" class="btn btn-outline-danger">Companies</a>
+                    <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Account</a>
+                @endauth
+            </div>
+        @endif
+    <h2>Form to edit company data</h2>
     @if ($errors->any())
         <div class="alert alert-danger" role="alert">
             <ul>
@@ -36,6 +45,6 @@
             <label for="file">Add logo to company</label>
             <input type="file" class="form-control-file" id="file" name="file">
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-success">Update</button>
     </form>
 @endsection

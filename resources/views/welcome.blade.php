@@ -76,20 +76,19 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                @auth
+                    <div class="title m-b-md">
+                        Company Staff Management
+                    </div>
+                    <div class="links">
+                        <a href="{{ route('companies.index') }}">Companies</a>
+                    </div>
+                    <div class="links">
+                        <a href="{{ route('employees.index') }}">Employees</a>
+                    </div>
+                @else
+                    <h2>To use the application you must log</h2>
+                @endauth
             </div>
         </div>
     </body>

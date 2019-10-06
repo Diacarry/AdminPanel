@@ -3,7 +3,17 @@
     Edit Employee
 @endsection
 @section('content')
-    <h2>Formulario para editar datos de un empleado</h2>
+    <br>
+    @if (Route::has('login'))
+        <div class="text-right">
+            @auth
+                <a href="/companies/{{ $data->fk_companies }}" class="btn btn-outline-warning">Partners</a>
+                <a href="{{ route('employees.index') }}" class="btn btn-outline-danger">Employees</a>
+                <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Account</a>
+            @endauth
+        </div>
+    @endif
+    <h2>Form to edit data of an employee</h2>
     @if ($errors->any())
         <div class="alert alert-danger" role="alert">
             <ul>
@@ -24,7 +34,7 @@
         </div>
         <div class="form-group">
             <select name="fk_companies" id="fk_companies" class="form-control">
-                <option value="">Elija una Opción</option>
+                <option value="">Choose a option</option>
                 @foreach($companies as $company)
                     <option value="{{ $company->email }}">{{ $company->name }}</option>
                 @endforeach
@@ -42,6 +52,6 @@
             <label for="phone">Phone</label>
             <input type="text" class="form-control" id="phone" name="phone" placeholder="+57 3214916403" value="{{ $data->phone }}">
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-success">Update</button>
     </form>
 @endsection
