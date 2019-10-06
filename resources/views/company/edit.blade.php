@@ -23,16 +23,16 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="email">Name Company</label>
+            <label for="name">Name Company</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="example SAS" value="{{ $data->name }}">
         </div>
         <div class="form-group">
-            <label for="email">Website</label>
+            <label for="website">Website</label>
             <input type="text" class="form-control" id="website" name="website" placeholder="www.example.com" value="{{ $data->website }}">
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlFile1">Add logo to company</label>
+            <label for="file">Add logo to company</label>
             <input type="file" class="form-control-file" id="file" name="file">
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
