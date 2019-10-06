@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Company;
 //use Illuminate\Http\File;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $data = Company::all();
+        $data = Company::paginate(10);
         return view('company.index', [
             'data' => $data
         ]);

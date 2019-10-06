@@ -15,7 +15,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::all();
+        $employees = Employee::paginate(10);
         foreach ($employees as $priority) {
             $company = Employee::find($priority->email)->company;
             $priority->company = $company->name; 
