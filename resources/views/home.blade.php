@@ -14,7 +14,21 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <p>WELCOME... You are logged in!</p>
+                    <p>Choose a Language</p>
+                    <form action="/" method="post">
+                        @csrf
+                        <div class="input-group mb-3">
+                            <select class="form-control" name="lang" id="lang">
+                                <option value="">Chosee a option</option>
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                            </select>
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-outline-success">OK</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

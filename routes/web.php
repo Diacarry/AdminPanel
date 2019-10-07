@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@index');
+
+Route::post('/', 'PagesController@lang');
 
 Route::resource('/companies', 'CompanyController');
 

@@ -78,16 +78,17 @@
             <div class="content">
                 @auth
                     <div class="title m-b-md">
-                        Company Staff Management
+                        <p>@lang('files.menuTitle')</p>
                     </div>
                     <div class="links">
-                        <a href="{{ route('companies.index') }}">Companies</a>
+                        <a href="{{ route('companies.index') }}">@lang('files.menuLinkA')</a>
                     </div>
                     <div class="links">
-                        <a href="{{ route('employees.index') }}">Employees</a>
+                        <a href="{{ route('employees.index') }}">@lang('files.menuLinkB')</a>
                     </div>
                 @else
                     <h2>To use the application you must log</h2>
+                    <h2>Para usar este aplicativo debe esta logeado</h2>
                 @endauth
             </div>
         </div>
