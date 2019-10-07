@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                    <p>WELCOME... You are logged in!</p>
-                    <p>Choose a Language</p>
+                    <p>@lang('files.homeWelcomeA')</p>
+                    <p>@lang('files.homeWelcomeB')</p>
                     <form action="/" method="post">
                         @csrf
                         <div class="input-group mb-3">
@@ -29,6 +29,8 @@
                             </div>
                         </div>
                     </form>
+                    <!--<a href="language/en" class="btn btn-outline-primary">English</a>
+                    <a href="language/es" class="btn btn-outline-success">Español</a>-->
                 </div>
             </div>
         </div>

@@ -15,6 +15,21 @@ Route::get('/', 'PagesController@index');
 
 Route::post('/', 'PagesController@lang');
 
+//Route::get('/language/{locale}', function ($locale) {
+    /*$xd = App::getLocale();
+    echo $xd;
+    App::setLocale($locale);
+    $xd = App::getLocale();
+    //echo __('files.homeTitle');
+    //$locale = App::getLocale();
+    echo $xd;
+    //dd($locale);
+    return redirect('mierda');*/
+//});
+/*Route::get('/mierda', function() {
+    echo App::getLocale();
+});*/
+
 Route::resource('/companies', 'CompanyController');
 
 Route::resource('/employees', 'EmployeeController');
