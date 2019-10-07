@@ -7,12 +7,12 @@
     @if (Route::has('login'))
         <div class="text-right">
             @auth
-                <a href="{{ route('employees.index') }}" class="btn btn-outline-danger">Employees</a>
-                <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Account</a>
+                <a href="{{ route('employees.index') }}" class="btn btn-outline-danger">@lang('files.previousB')</a>
+                <a href="{{ url('/home') }}" class="btn btn-outline-secondary">@lang('files.account')</a>
             @endauth
         </div>
     @endif
-    <h2>Form to add a new employee</h2>
+    <h2>@lang('files.employyeTitleC')</h2>
     @if ($errors->any())
         <div class="alert alert-danger" role="alert">
             <ul>
@@ -25,7 +25,7 @@
     <form action="/employees" method="POST">
         @csrf
         <div class="form-group row">
-            <label for="fk_companies" class="col-sm-2 col-form-label">Company</label>
+            <label for="fk_companies" class="col-sm-2 col-form-label">@lang('files.employeeFormLabelA')</label>
             <div class="col-sm-10">
                 <select name="fk_companies" id="fk_companies" class="form-control">
                     <option value="">Choose a option</option>
@@ -36,29 +36,29 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="email" class="col-sm-2 col-form-label">E-mail User</label>
+            <label for="email" class="col-sm-2 col-form-label">@lang('files.employeeFormLabelB')</label>
             <div class="col-sm-10">
                 <input type="email" class="form-control" id="email" name="email" placeholder="example@company.com" value="{{ old('email') }}">
             </div>
         </div>
         <div class="form-group row">
-            <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+            <label for="firstName" class="col-sm-2 col-form-label">@lang('files.employeeFormLabelC')</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Diego Andrés" value="{{ old('firstName') }}">
             </div>
         </div>
         <div class="form-group row">
-            <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+            <label for="lastName" class="col-sm-2 col-form-label">@lang('files.employeeFormLabelD')</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Carranza Rivera" value="{{ old('lastName') }}">
             </div>
         </div>
         <div class="form-group row">
-            <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+            <label for="phone" class="col-sm-2 col-form-label">@lang('files.employeeFormLabelE')</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="phone" name="phone" placeholder="+57 3214916403" value="{{ old('phone') }}">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary">@lang('files.generalButtonRegister')</button>
     </form>
 @endsection

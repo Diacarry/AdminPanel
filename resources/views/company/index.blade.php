@@ -7,33 +7,29 @@
         @if (Route::has('login'))
             <div class="text-right">
                 @auth
-                    <a href="{{ url('/') }}" class="btn btn-outline-danger">Menu</a>
-                    <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Account</a>
+                    <a href="{{ url('/') }}" class="btn btn-outline-danger">@lang('files.menu')</a>
+                    <a href="{{ url('/home') }}" class="btn btn-outline-secondary">@lang('files.account')</a>
                 @endauth
             </div>
         @endif
         <div class="card">
             <div class="card-header">
-                <h2>Companies
-                    <div class="text"></div>
-                </h2>
+                <h2>@lang('files.companyTitleA')</h2>
             </div>
             <div class="card-body">
-            <p><a href="companies/create" class="btn btn-success">Create new company</a></p>
+            <p><a href="companies/create" class="btn btn-success">@lang('files.companyButtonCreate')</a></p>
                 <div class="card">
-                    <div class="card-header">
-                        Companies List
-                    </div>
+                    <div class="card-header">@lang('files.companyTitleB')</div>
                     <div class="card-body">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">E-mail</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">WebSite</th>
-                                    <th scope="col">Employees</th>
-                                    <th scope="col">Edit</th>
-                                    <th scope="col">Delete</th>
+                                    <th scope="col">@lang('files.tableEmail')</th>
+                                    <th scope="col">@lang('files.tableName')</th>
+                                    <th scope="col">@lang('files.tableWebsite')</th>
+                                    <th scope="col">@lang('files.tableEmployees')</th>
+                                    <th scope="col">@lang('files.tableButtonEdit')</th>
+                                    <th scope="col">@lang('files.tableButtonDelete')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -55,7 +51,7 @@
                                 @empty
                                     <tr>
                                         <div class="alert alert-danger" role="alert">
-                                            NO COMPANIES REGISTERED
+                                            @lang('files.warningA')
                                         </div>
                                     </tr>
                                 @endforelse

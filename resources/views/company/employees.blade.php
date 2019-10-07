@@ -7,26 +7,26 @@
     @if (Route::has('login'))
         <div class="text-right">
             @auth
-                <a href="{{ route('companies.index') }}" class="btn btn-outline-danger">Companies</a>
-                <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Account</a>
+                <a href="{{ route('companies.index') }}" class="btn btn-outline-danger">@lang('files.previous')</a>
+                <a href="{{ url('/home') }}" class="btn btn-outline-secondary">@lang('files.account')</a>
             @endauth
         </div>
     @endif
 
         <div class="card">
             <div class="card-header">
-                <h2>{{ $company->name }}'s Employees list</h2>
+                <h2>{{ $company->name }}@lang('files.companyTitleD')</h2>
             </div>
             <div class="card-body">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">E-mail</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Edit</th>
-                            <th scope="col">Delete</th>
+                            <th scope="col">@lang('files.tableEmail')</th>
+                            <th scope="col">@lang('files.tableFirstName')</th>
+                            <th scope="col">@lang('files.tableLastName')</th>
+                            <th scope="col">@lang('files.tablePhone')</th>
+                            <th scope="col">@lang('files.tableButtonEdit')</th>
+                            <th scope="col">@lang('files.tableButtonDelete')</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,7 +48,7 @@
                         @empty
                             <tr>
                                 <div class="alert alert-danger" role="alert">
-                                    NO REGISTERED EMPLOYEES IN THE COMPANY
+                                    @lang('files.warningB')
                                 </div>
                             </tr>
                         @endforelse

@@ -7,12 +7,12 @@
         @if (Route::has('login'))
             <div class="text-right">
                 @auth
-                    <a href="{{ route('companies.index') }}" class="btn btn-outline-danger">Companies</a>
-                    <a href="{{ url('/home') }}" class="btn btn-outline-secondary">Account</a>
+                    <a href="{{ route('companies.index') }}" class="btn btn-outline-danger">@lang('files.previous')Companies</a>
+                    <a href="{{ url('/home') }}" class="btn btn-outline-secondary">@lang('files.accont')Account</a>
                 @endauth
             </div>
         @endif
-    <h2>Form to edit company data</h2>
+    <h2>@lang('files.companyTitleE')</h2>
     @if ($errors->any())
         <div class="alert alert-danger" role="alert">
             <ul>
@@ -26,25 +26,25 @@
         @csrf
         @method('put')
         <div class="form-group row">
-            <label for="email" class="col-sm-2 col-form-label">E-mail Company</label>
+            <label for="email" class="col-sm-2 col-form-label">@lang('files.companyFormLabelA')</label>
             <div class="col-sm-10">
                 <h3>{{ $data->email }}</h3>
             </div>
         </div>
         <div class="form-group">
-            <label for="name">Name Company</label>
+            <label for="name">@lang('files.companyFormLabelB')</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="example SAS" value="{{ $data->name }}">
         </div>
         <div class="form-group">
-            <label for="website">Website</label>
+            <label for="website">@lang('files.companyFormLabelC')</label>
             <input type="text" class="form-control" id="website" name="website" placeholder="www.example.com" value="{{ $data->website }}">
         </div>
 
         <div class="form-group">
             <img src="{{ Storage::url($data->logo) }}" alt=""  width="100px">
-            <label for="file">Add logo to company</label>
+            <label for="file">@lang('files.companyFormLabelD')</label>
             <input type="file" class="form-control-file" id="file" name="file">
         </div>
-        <button type="submit" class="btn btn-success">Update</button>
+        <button type="submit" class="btn btn-success">@lang('files.generalButtonUpdate')</button>
     </form>
 @endsection
