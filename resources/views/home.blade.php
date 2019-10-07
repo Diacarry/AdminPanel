@@ -16,6 +16,15 @@
 
                     <p>@lang('files.homeWelcomeA')</p>
                     <p>@lang('files.homeWelcomeB')</p>
+                    @if ($errors->any())
+                        <div class="alert alert-danger" role="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form action="/" method="post">
                         @csrf
                         <div class="input-group mb-3">

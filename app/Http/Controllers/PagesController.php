@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -9,8 +11,7 @@ class PagesController extends Controller
 {
     public function index () {
         $var = Auth::user();
-        $var->xd = 'es';
-        //dd($var);
+        App::setLocale($var->language);
         return view('welcome');
     }
     /**
@@ -21,8 +22,13 @@ class PagesController extends Controller
      */
     public function lang(Request $request)
     {
+        $validatedData = $request->validate([
+            'lang'    => 'required',
+        ]);
         $var = Auth::user();
-        $var->language = $request->input('lang');
-        dd($var);
+        $user = User::find($var->email);
+        $user->language = $request->input('lang');
+        $user->save();
+        return redirect('/');
     }
 }
