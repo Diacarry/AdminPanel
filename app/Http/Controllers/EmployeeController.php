@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Company;
 use App\Employee;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -22,6 +24,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
+        $usr = Auth::user();
+        App::setLocale($usr->language);
         $employees = Employee::paginate(10);
         foreach ($employees as $priority) {
             $company = Employee::find($priority->email)->company;
@@ -39,6 +43,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
+        $usr = Auth::user();
+        App::setLocale($usr->language);
         $companies = Company::all();
         return view('employee.register',[
             'data' => $companies
@@ -89,6 +95,8 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
+        $usr = Auth::user();
+        App::setLocale($usr->language);
         $employee = Employee::find($id);
         $companies = Company::all();
         return view('employee.edit', [

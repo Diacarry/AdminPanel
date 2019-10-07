@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Company;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -23,6 +24,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
+        $usr = Auth::user();
+        App::setLocale($usr->language);
         $data = Company::paginate(10);
         return view('company.index', [
             'data' => $data
@@ -36,6 +39,8 @@ class CompanyController extends Controller
      */
     public function create()
     {
+        $usr = Auth::user();
+        App::setLocale($usr->language);
         return view('company.register');
     }
 
@@ -74,6 +79,8 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
+        $usr = Auth::user();
+        App::setLocale($usr->language);
         $company = Company::find($id);
         $employees = Company::find($id)->employees;
         return view('company.employees',[
@@ -90,6 +97,8 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
+        $usr = Auth::user();
+        App::setLocale($usr->language);
         $company = Company::find($id);
         return view('company.edit', [
             'data' => $company

@@ -50,7 +50,7 @@ return [
     'employeeTitleA' => 'Empleados',
     'employeeTitleB' => 'Listado de empleados ',
     'employeeTitleC' => 'Formulario para añadir un nuevo empleado',
-    'employyeTitleD' => 'Formulario para editar información de un empleado',
+    'employeeTitleD' => 'Formulario para editar información de un empleado',
 
     'employeeFormLabelA' => 'Compañia',
     'employeeFormLabelB' => 'Correo de usuario',

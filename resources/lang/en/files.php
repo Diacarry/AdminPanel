@@ -50,7 +50,7 @@ return [//Company Staff Management || Personnel and business management
     'employeeTitleA' => 'Employees',
     'employeeTitleB' => 'Employees List ',
     'employeeTitleC' => 'Form to add a new employee',
-    'employyeTitleD' => 'Form to edit data of an employee',
+    'employeeTitleD' => 'Form to edit data of an employee',
 
     'employeeFormLabelA' => 'Company',
     'employeeFormLabelB' => 'E-mail User',

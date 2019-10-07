@@ -12,7 +12,7 @@
             @endauth
         </div>
     @endif
-    <h2>@lang('files.employyeTitleC')</h2>
+    <h2>@lang('files.employeeTitleC')</h2>
     @if ($errors->any())
         <div class="alert alert-danger" role="alert">
             <ul>
