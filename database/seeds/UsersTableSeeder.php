@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Andres Carranza',
             'email' => 'admin@admin.com',
             'password' => bcrypt('password'),
+            'language' => 'en',
         ]);
     }
 }
