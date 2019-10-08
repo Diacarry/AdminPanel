@@ -33,7 +33,7 @@ class PagesController extends Controller
         $user->save();
         return redirect('/');
     }
-    public function store(Request $request)
+    /*public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -41,5 +41,5 @@ class PagesController extends Controller
         ]);
 
         return response()->json(['status' => 'OK']);
-    }
+    }*/
 }
