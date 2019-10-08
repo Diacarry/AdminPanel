@@ -10,8 +10,10 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function index () {
-        $usr = Auth::user();
-        App::setLocale($usr->language);
+        if (Auth::check()) {
+            $usr = Auth::user();
+            App::setLocale($usr->language);
+        }
         return view('welcome');
     }
     /**
@@ -30,5 +32,14 @@ class PagesController extends Controller
         $user->language = $request->input('lang');
         $user->save();
         return redirect('/');
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email'
+        ]);
+
+        return response()->json(['status' => 'OK']);
     }
 }
