@@ -9,7 +9,7 @@ use Closure;
 class DetectLanguage
 {
     /**
-     * Handle an incoming request.
+     * Handle an incoming request (BeforeMiddleware).
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
