@@ -13,11 +13,15 @@
 
 Route::get('/', 'PagesController@index');
 
-Route::post('/', 'PagesController@lang');
+Route::group(['middleware' => 'auth'], function (){
 
-Route::resource('/companies', 'CompanyController');
+    Route::post('/', 'PagesController@lang');
 
-Route::resource('/employees', 'EmployeeController');
+    Route::resource('/companies', 'CompanyController');
+
+    Route::resource('/employees', 'EmployeeController');
+    
+});
 
 Auth::routes();
 
