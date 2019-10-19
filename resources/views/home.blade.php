@@ -38,8 +38,6 @@
                             </div>
                         </div>
                     </form>
-                    <!--<a href="language/en" class="btn btn-outline-primary">English</a>
-                    <a href="language/es" class="btn btn-outline-success">Español</a>-->
                 </div>
             </div>
         </div>

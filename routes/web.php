@@ -13,16 +13,18 @@
 
 Route::get('/', 'PagesController@index');
 
-Route::group(['middleware' => 'auth'], function (){
+Route::group(['middleware' => 'auth', 'middleware' => 'language'], function (){
 
     Route::post('/', 'PagesController@lang');
 
     Route::resource('/companies', 'CompanyController');
 
     Route::resource('/employees', 'EmployeeController');
+
+    Route::get('/home', 'HomeController@index')->name('home');
     
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+

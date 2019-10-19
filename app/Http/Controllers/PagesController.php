@@ -33,13 +33,4 @@ class PagesController extends Controller
         $user->save();
         return redirect('/');
     }
-    /*public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email'
-        ]);
-
-        return response()->json(['status' => 'OK']);
-    }*/
 }

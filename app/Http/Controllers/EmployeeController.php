@@ -12,7 +12,7 @@ class EmployeeController extends Controller
 {
     /**
      * Metodo constructor
-     * Implementacion de middleware de autenticacion
+     * Implementacion de middleware de autenticacion (Actualmente implementa metodo redundante)
      */
     public function __construct() {
         $this->middleware('auth');
@@ -24,8 +24,6 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $usr = Auth::user();
-        App::setLocale($usr->language);
         $employees = Employee::paginate(10);
         foreach ($employees as $priority) {
             $company = Employee::find($priority->email)->company;
@@ -43,8 +41,6 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        $usr = Auth::user();
-        App::setLocale($usr->language);
         $companies = Company::all();
         return view('employee.register',[
             'data' => $companies
@@ -95,8 +91,6 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        $usr = Auth::user();
-        App::setLocale($usr->language);
         $employee = Employee::find($id);
         $companies = Company::all();
         return view('employee.edit', [
