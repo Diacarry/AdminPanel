@@ -13,7 +13,7 @@
 
 Route::get('/', 'PagesController@index');
 
-Route::group(['middleware' => 'auth', 'middleware' => 'language'], function (){
+Route::middleware (['auth', 'language'])->group (function () {
 
     Route::post('/', 'PagesController@lang');
 
@@ -26,5 +26,3 @@ Route::group(['middleware' => 'auth', 'middleware' => 'language'], function (){
 });
 
 Auth::routes();
-
-
