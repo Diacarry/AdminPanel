@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::get('/', 'ShowWelcome');
 
 Route::middleware (['auth', 'language'])->group (function () {
 

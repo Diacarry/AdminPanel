@@ -9,13 +9,6 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function index () {
-        if (Auth::check()) {
-            $usr = Auth::user();
-            App::setLocale($usr->language);
-        }
-        return view('welcome');
-    }
     /**
      * Change Sesion language.
      *
